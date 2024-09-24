@@ -1,17 +1,20 @@
-// Fetch and display posts from the server
-fetch('/posts')
-    .then(response => response.json())
-    .then(posts => {
-        const postsDiv = document.getElementById('posts');
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.classList.add('post');
-            postElement.innerHTML = `
-        <h2>${post.title}</h2>
-        <p>${post.content}</p>
-        <small>Posted on ${new Date(post.created_at).toLocaleDateString()}</small>
-      `;
-            postsDiv.appendChild(postElement);
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/posts')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(posts => {
+            const postsContainer = document.getElementById('posts-container'); // Adjust this ID based on your HTML
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>`;
+                postsContainer.appendChild(postElement);
+            });
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
         });
-    })
-    .catch(error => console.error('Error fetching posts:', error));
+});
