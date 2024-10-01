@@ -16,7 +16,7 @@ body {
     border: 2px solid black;
 }
 
-.post {
+#posts-container {
     margin-bottom: 20px;
     border: 1px solid black;
     padding-bottom: 10px;
