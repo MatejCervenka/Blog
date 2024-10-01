@@ -18,7 +18,7 @@ body {
 
 .post {
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid black;
     padding-bottom: 10px;
 }
 
