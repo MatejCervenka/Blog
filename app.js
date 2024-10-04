@@ -43,7 +43,7 @@ app.get('/posts', (req, res) => {
 app.post('/add-post', (req, res) => {
     const { title, content } = req.body;
     const sql = 'INSERT INTO posts (title, content, created_at) VALUES (?, ?, NOW())';
-    connection.query(sql, [title, content], (err, result) => {
+    db.query(sql, [title, content], (err) => {
         if (err) {
             res.status(500).send('Error inserting post');
         } else {
