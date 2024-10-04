@@ -2,7 +2,10 @@ const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 const port = 3000;
+
+app.use(bodyParser.json());
 
 // Připojení k MySQL databázi
 const db = mysql.createConnection({
@@ -33,6 +36,19 @@ app.get('/posts', (req, res) => {
             return res.status(500).send(err);
         }
         res.json(results);
+    });
+});
+
+// Add new post
+app.post('/add-post', (req, res) => {
+    const { title, content } = req.body;
+    const sql = 'INSERT INTO posts (title, content, created_at) VALUES (?, ?, NOW())';
+    connection.query(sql, [title, content], (err, result) => {
+        if (err) {
+            res.status(500).send('Error inserting post');
+        } else {
+            res.status(200).send('Post added');
+        }
     });
 });
 
