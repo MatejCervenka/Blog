@@ -37,11 +37,11 @@ document.getElementById('post-form').addEventListener('submit', async function (
         if (!response.ok) {
             const errorMessage = await response.text(); // Read the response body
             console.error(`Error: ${response.status} ${response.statusText}. Message: ${errorMessage}`);
-            throw new Error(`Failed to add post: ${response.status}`);
+            //throw new Error(`Failed to add post: ${response.status}`);
         }
 
         // Reload posts after adding new post
-        loadPosts();
+        await loadPosts();
     } catch (error) {
         console.error('Error:', error);
     }
