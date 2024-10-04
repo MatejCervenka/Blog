@@ -40,7 +40,7 @@ app.get('/posts', (req, res) => {
 });
 
 // Add new post
-app.post('/add-post', (req, res) => {
+app.post('/add_post', (req, res) => {
     const { title, content } = req.body;
     const sql = 'INSERT INTO posts (title, content, created_at) VALUES (?, ?, NOW())';
     db.query(sql, [title, content], (err) => {

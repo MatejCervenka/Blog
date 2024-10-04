@@ -26,7 +26,7 @@ document.getElementById('post-form').addEventListener('submit', async function (
     const content = document.getElementById('content').value;
 
     try {
-        const response = await fetch('/add-post', {
+        const response = await fetch('/add_post', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,9 @@ document.getElementById('post-form').addEventListener('submit', async function (
         });
 
         if (!response.ok) {
-            throw new Error('Failed to add post');
+            const errorMessage = await response.text(); // Read the response body
+            console.error(`Error: ${response.status} ${response.statusText}. Message: ${errorMessage}`);
+            throw new Error(`Failed to add post: ${response.status}`);
         }
 
         // Reload posts after adding new post
