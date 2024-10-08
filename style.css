@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    text-align: center;
 }
 
 .container {
@@ -11,11 +12,13 @@ body {
     padding: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    border: 2px solid black;
 }
 
-.post {
+#posts-container {
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid black;
     padding-bottom: 10px;
 }
 
