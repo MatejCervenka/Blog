@@ -26,18 +26,20 @@ body {
     margin: 0;
 }
 
-.add-post-container {
+.form-container {
+    max-width: 400px; /* Reduced width */
+    margin: 0 auto;
     background-color: #f4f4f4;
-    border: 1px solid black;
-    padding-bottom: 15px;
-    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"],
 textarea {
-    width: 80%;
+    width: 80%; /* Reduced width */
     padding: 12px 20px;
-    margin: 8px 0 20px;
+    margin: 8px auto 20px; /* Margin auto to center */
     display: block;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -55,4 +57,20 @@ textarea:focus {
 textarea {
     resize: vertical;
     min-height: 100px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto; /* Centered */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
 }
