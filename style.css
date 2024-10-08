@@ -25,3 +25,8 @@ body {
 .post h2 {
     margin: 0;
 }
+
+.add-post-container {
+    background-color: #f4f4f4;
+    border: 1px solid black;
+}
