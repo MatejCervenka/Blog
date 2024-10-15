@@ -65,8 +65,8 @@ app.post('/add_post', (req, res) => {
 // Webhook handler for GitHub push events
 app.post('/webhook-handler', (req, res) => {
     res.sendStatus(200)
-
     setTimeout(() => { exec('nohup deploy.sh &') }, 3000)
+    console.log('Deployment triggered by GitHub webhook');
 });
 
 // Spuštění serveru
