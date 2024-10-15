@@ -12,7 +12,6 @@ const dotenv = require('dotenv');
 // Načtení proměnných z config.env souboru
 dotenv.config({ path: './config.env' });
 
-
 const secret = '0971';
 
 app.use(bodyParser.json());
