@@ -48,6 +48,7 @@ app.get('/posts', (req, res) => {
     });
 });
 
+
 // Add new post
 app.post('/add_post', (req, res) => {
     const { title, content } = req.body;
