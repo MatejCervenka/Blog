@@ -62,7 +62,6 @@ app.post('/add_post', (req, res) => {
     });
 });
 
-
 // Webhook handler for GitHub push events
 app.post('/webhook-handler', (req, res) => {
     res.sendStatus(200)
