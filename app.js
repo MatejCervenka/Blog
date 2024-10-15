@@ -4,15 +4,20 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const port = 3000;
+const dotenv = require('dotenv');
+
+// Načtení proměnných z config.env souboru
+dotenv.config({ path: './config.env' });
+
 
 app.use(bodyParser.json());
 
 // Připojení k MySQL databázi
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'ubuntu',        // Použijte své uživatelské jméno MySQL
-    password: 'emirates139',  // Heslo k MySQL
-    database: 'blog'     // Název databáze
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 // Připojení k databázi
